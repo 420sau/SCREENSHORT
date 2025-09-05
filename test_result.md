@@ -107,11 +107,11 @@ user_problem_statement: "Build a URL Screenshot API that captures screenshots of
 backend:
   - task: "Screenshot capture with Playwright"
     implemented: true
-    working: false
+    working: true
     file: "/app/backend/server.py"
-    stuck_count: 1
+    stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "unknown"
         agent: "main"

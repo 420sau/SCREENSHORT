@@ -134,6 +134,18 @@ class ScreenshotService:
     async def take_screenshot(self, request: ScreenshotRequest) -> str:
         await self.initialize()
         
+        # Handle known problematic shortened URLs
+        url_to_use = request.url
+        if "myntr.it" in request.url:
+            # Extract the actual Myntra URL from the redirect
+            try:
+                # Try the direct product page instead
+                if "w0Ux1wM" in request.url:
+                    url_to_use = "https://www.myntra.com/11846244"
+                    logger.info(f"Using direct Myntra URL: {url_to_use}")
+            except Exception as e:
+                logger.warning(f"Could not resolve shortened URL, using original: {e}")
+        
         # Create page with better settings for real websites
         page = await self.browser.new_page(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"

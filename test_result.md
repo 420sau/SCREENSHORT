@@ -107,11 +107,11 @@ user_problem_statement: "Build a URL Screenshot API that captures screenshots of
 backend:
   - task: "Screenshot capture with Playwright"
     implemented: true
-    working: true
+    working: false
     file: "/app/backend/server.py"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "unknown"
         agent: "main"
@@ -119,6 +119,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ COMPREHENSIVE TESTING COMPLETED: All screenshot functionality working perfectly. Tested PNG/JPEG formats, viewport sizes (800x600, 1920x1080, 2560x1440), full page capture, delay functionality (3s delay working), and quality settings. Screenshots are properly base64 encoded and returned with correct metadata. Fixed Playwright browser installation issue by setting PLAYWRIGHT_BROWSERS_PATH=/pw-browsers."
+      - working: false
+        agent: "user"
+        comment: "User reports screenshot functionality not working with URLs: https://myntr.it/w0Ux1wM, https://www.amazon.in/dp/B0CGHV98DN?psc=1&th=1&tag=unfoldoffic0e-21, https://fkrt.cc/g8Nn06c"
         
   - task: "API key authentication system"
     implemented: true

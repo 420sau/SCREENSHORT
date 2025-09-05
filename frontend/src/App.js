@@ -74,7 +74,13 @@ function App() {
         }
       );
 
-      setScreenshot(response.data);
+      const screenshotData = response.data;
+      setScreenshot(screenshotData);
+      
+      // Check if the screenshot might contain an error page
+      if (url.includes('myntr.it') || url.includes('fkrt.cc')) {
+        console.log('Note: Shortened URLs may redirect through anti-bot systems');
+      }
     } catch (e) {
       console.error('Screenshot error:', e);
       const errorMsg = e.response?.data?.detail || 'Failed to capture screenshot';

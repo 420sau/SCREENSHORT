@@ -132,8 +132,12 @@ class ScreenshotService:
                 "height": request.options.height
             })
             
-            # Navigate to URL
-            await page.goto(request.url, wait_until="networkidle", timeout=30000)
+            # Navigate to URL with better error handling and longer timeout
+            await page.goto(
+                request.url, 
+                wait_until="domcontentloaded",  # Less strict than networkidle
+                timeout=60000  # Increased timeout to 60 seconds
+            )
             
             # Apply delay if specified
             if request.options.delay > 0:

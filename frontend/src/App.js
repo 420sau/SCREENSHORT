@@ -159,6 +159,9 @@ function App() {
               placeholder="https://example.com"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+            <p className="mt-1 text-sm text-gray-500">
+              💡 For e-commerce sites (Amazon, Myntra, Flipkart), use higher delay (8000+ ms) for better results
+            </p>
           </div>
 
           {/* API Key Input */}

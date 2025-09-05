@@ -122,6 +122,9 @@ backend:
       - working: false
         agent: "user"
         comment: "User reports screenshot functionality not working with URLs: https://myntr.it/w0Ux1wM, https://www.amazon.in/dp/B0CGHV98DN?psc=1&th=1&tag=unfoldoffic0e-21, https://fkrt.cc/g8Nn06c"
+      - working: true
+        agent: "main"
+        comment: "FIXED: Issue was timeout (30s -> 60s), wait condition (networkidle -> domcontentloaded), and missing anti-bot headers. Added proper user agent, browser headers, and additional Chrome flags. All 3 problematic URLs now working successfully via curl testing. Increased default delay to 5000ms for e-commerce sites."
         
   - task: "API key authentication system"
     implemented: true

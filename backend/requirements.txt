@@ -25,4 +25,3 @@ jq>=1.6.0
 typer>=0.9.0
 playwright==1.40.0
 pillow==10.2.0
-base64

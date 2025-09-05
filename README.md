@@ -1,6 +1,6 @@
 # URL Screenshot API 📸
 
-A powerful, production-ready API service for capturing high-quality screenshots of any webpage with advanced customization options and anti-bot protection.
+A powerful, production-ready API service for capturing high-quality screenshots of any webpage with advanced customisation options and anti-bot protection.
 
 ![URL Screenshot API](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
@@ -45,7 +45,7 @@ A powerful, production-ready API service for capturing high-quality screenshots 
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/url-screenshot-api.git
+git clone https://github.com/420sau/url-screenshot-api.git
 cd url-screenshot-api
 ```
 
@@ -75,7 +75,7 @@ docker-compose up -d
 #### Backend Setup
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/url-screenshot-api.git
+git clone https://github.com/420sau/url-screenshot-api.git
 cd url-screenshot-api/backend
 
 # Create virtual environment

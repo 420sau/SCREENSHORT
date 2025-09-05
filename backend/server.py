@@ -180,9 +180,19 @@ class ScreenshotService:
                 timeout=60000  # Increased timeout to 60 seconds
             )
             
-            # Apply delay if specified
-            if request.options.delay > 0:
-                await asyncio.sleep(request.options.delay / 1000)
+            # Add realistic behavior - random mouse movement
+            await page.mouse.move(100, 100)
+            await asyncio.sleep(0.5)
+            await page.mouse.move(200, 200)
+            
+            # Apply delay if specified (minimum 2 seconds for stealth)
+            delay_time = max(request.options.delay, 2000) if request.options.delay > 0 else 2000
+            await asyncio.sleep(delay_time / 1000)
+            
+            # Scroll a bit to simulate real user behavior
+            await page.evaluate("window.scrollTo(0, 200)")
+            await asyncio.sleep(0.5)
+            await page.evaluate("window.scrollTo(0, 0)")
             
             # Take screenshot
             screenshot_options = {

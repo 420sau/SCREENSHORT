@@ -200,6 +200,15 @@ class ScreenshotService:
             await asyncio.sleep(0.5)
             await page.evaluate("window.scrollTo(0, 0)")
             
+            # Check if page loaded successfully (look for common error indicators)
+            page_content = await page.content()
+            if "oops" in page_content.lower() and "something went wrong" in page_content.lower():
+                logger.warning(f"Page shows error content for URL: {request.url}")
+                # Try waiting a bit more and refreshing
+                await asyncio.sleep(3)
+                await page.reload(wait_until="domcontentloaded")
+                await asyncio.sleep(2)
+            
             # Take screenshot
             screenshot_options = {
                 "full_page": request.options.fullPage,

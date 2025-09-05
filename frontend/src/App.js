@@ -19,7 +19,7 @@ function App() {
     width: 1920,
     height: 1080,
     fullPage: false,
-    delay: 2000,
+    delay: 5000, // Increased default delay for complex sites
     format: 'png',
     quality: 90
   });

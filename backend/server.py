@@ -193,7 +193,7 @@ class ScreenshotService:
             
             # Navigate to URL with better error handling and longer timeout
             await page.goto(
-                request.url, 
+                url_to_use, 
                 wait_until="domcontentloaded",  # Less strict than networkidle
                 timeout=60000  # Increased timeout to 60 seconds
             )

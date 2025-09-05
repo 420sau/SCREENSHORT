@@ -208,6 +208,7 @@ function App() {
                 value={options.delay}
                 onChange={(e) => setOptions({...options, delay: parseInt(e.target.value)})}
                 className="w-full px-2 py-1 border border-gray-300 rounded text-sm"
+                title="Wait time before capturing screenshot. Use 5000+ for e-commerce sites"
               />
             </div>
             <div>

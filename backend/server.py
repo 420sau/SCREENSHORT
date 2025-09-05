@@ -121,7 +121,13 @@ class ScreenshotService:
                     '--disable-features=VizDisplayCompositor',
                     '--disable-web-security',
                     '--disable-features=TranslateUI',
-                    '--disable-ipc-flooding-protection'
+                    '--disable-ipc-flooding-protection',
+                    '--excludeSwitches=enable-automation',
+                    '--useAutomationExtension=false',
+                    '--disable-extensions-except=',
+                    '--disable-extensions',
+                    '--disable-plugins-discovery',
+                    '--disable-default-apps'
                 ]
             )
     

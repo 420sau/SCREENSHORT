@@ -123,13 +123,24 @@ class ScreenshotService:
     async def take_screenshot(self, request: ScreenshotRequest) -> str:
         await self.initialize()
         
-        page = await self.browser.new_page()
+        # Create page with better settings for real websites
+        page = await self.browser.new_page(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
         
         try:
             # Set viewport
             await page.set_viewport_size({
                 "width": request.options.width,
                 "height": request.options.height
+            })
+            
+            # Add extra headers to appear more like a real browser
+            await page.set_extra_http_headers({
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.9",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Upgrade-Insecure-Requests": "1",
             })
             
             # Navigate to URL with better error handling and longer timeout
